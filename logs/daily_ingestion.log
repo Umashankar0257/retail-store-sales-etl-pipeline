@@ -1,0 +1,54 @@
+2026-11-14 15:04:13,335 | INFO | ============================================================
+2026-11-14 15:04:13,337 | INFO | DAILY INGESTION STARTED
+2026-11-14 15:04:13,337 | INFO | ============================================================
+2026-11-14 15:04:13,337 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-14 15:04:14,245 | INFO | Source validation successful. Rows: 28000, Columns: 29
+2026-11-14 15:04:22,718 | ERROR | DAILY INGESTION FAILED: Target table public.store_sales does not exist. Create it before running ingestion.
+Traceback (most recent call last):
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 777, in run_ingestion
+    check_target_table(connection)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 392, in check_target_table
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Target table public.store_sales does not exist. Create it before running ingestion.
+2026-11-14 15:08:55,874 | INFO | ============================================================
+2026-11-14 15:08:55,875 | INFO | DAILY INGESTION STARTED
+2026-11-14 15:08:55,875 | INFO | ============================================================
+2026-11-14 15:08:55,875 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-14 15:08:56,651 | INFO | Source validation successful. Rows: 28000, Columns: 29
+2026-11-14 15:09:02,100 | INFO | No new source columns detected.
+2026-11-14 15:09:02,104 | INFO | Configured schema contract validated.
+2026-11-14 15:09:02,104 | INFO | Required target columns validated.
+2026-11-14 15:09:02,396 | INFO | Unique key index verified: ux_store_sales_syspk
+2026-11-14 15:09:18,920 | INFO | Staging loaded: stg_store_sales_de9bd0e011fc | Rows: 28000
+2026-11-14 15:09:19,115 | INFO | Upsert completed. Affected rows: 0
+2026-11-14 15:09:19,118 | INFO | Staging table cleaned up: stg_store_sales_de9bd0e011fc
+2026-11-14 15:09:19,139 | INFO | DAILY INGESTION COMPLETED SUCCESSFULLY
+2026-11-14 15:15:59,808 | INFO | ============================================================
+2026-11-14 15:15:59,809 | INFO | DAILY INGESTION STARTED
+2026-11-14 15:15:59,809 | INFO | ============================================================
+2026-11-14 15:15:59,809 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-14 15:16:00,558 | INFO | Source validation successful. Rows: 28000, Columns: 29
+2026-11-14 15:16:03,445 | INFO | No new source columns detected.
+2026-11-14 15:16:03,449 | INFO | Configured schema contract validated.
+2026-11-14 15:16:03,450 | INFO | Required target columns validated.
+2026-11-14 15:16:03,465 | INFO | Unique key index verified: ux_store_sales_syspk
+2026-11-14 15:16:22,247 | INFO | Staging loaded: stg_store_sales_1ea08b3b082d | Rows: 28000
+2026-11-14 15:16:22,514 | INFO | Upsert completed. Affected rows: 1
+2026-11-14 15:16:22,520 | INFO | Staging table cleaned up: stg_store_sales_1ea08b3b082d
+2026-11-14 15:16:22,539 | INFO | DAILY INGESTION COMPLETED SUCCESSFULLY
+2026-11-14 15:20:43,056 | INFO | ============================================================
+2026-11-14 15:20:43,057 | INFO | DAILY INGESTION STARTED
+2026-11-14 15:20:43,057 | INFO | ============================================================
+2026-11-14 15:20:43,057 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-14 15:20:43,592 | INFO | Source validation successful. Rows: 28003, Columns: 29
+2026-11-14 15:20:46,041 | INFO | No new source columns detected.
+2026-11-14 15:20:46,046 | INFO | Configured schema contract validated.
+2026-11-14 15:20:46,046 | INFO | Required target columns validated.
+2026-11-14 15:20:46,060 | INFO | Unique key index verified: ux_store_sales_syspk
+2026-11-14 15:21:02,886 | INFO | Staging loaded: stg_store_sales_7493b8a587d9 | Rows: 28003
+2026-11-14 15:21:03,133 | INFO | Upsert completed. Affected rows: 3
+2026-11-14 15:21:03,135 | INFO | Staging table cleaned up: stg_store_sales_7493b8a587d9
+2026-11-14 15:21:03,158 | INFO | DAILY INGESTION COMPLETED SUCCESSFULLY
