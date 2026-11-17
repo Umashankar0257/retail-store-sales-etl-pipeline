@@ -52,3 +52,920 @@ ValueError: Target table public.store_sales does not exist. Create it before run
 2026-11-14 15:21:03,133 | INFO | Upsert completed. Affected rows: 3
 2026-11-14 15:21:03,135 | INFO | Staging table cleaned up: stg_store_sales_7493b8a587d9
 2026-11-14 15:21:03,158 | INFO | DAILY INGESTION COMPLETED SUCCESSFULLY
+2026-11-16 11:21:20,220 | INFO | ============================================================
+2026-11-16 11:21:20,222 | INFO | DAILY INGESTION STARTED
+2026-11-16 11:21:20,222 | INFO | ============================================================
+2026-11-16 11:21:20,222 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 11:21:20,925 | INFO | Source validation successful. Rows: 28003, Columns: 29
+2026-11-16 11:21:24,470 | INFO | No new source columns detected.
+2026-11-16 11:21:24,474 | INFO | Configured schema contract validated.
+2026-11-16 11:21:24,474 | INFO | Required target columns validated.
+2026-11-16 11:21:24,501 | INFO | Unique key index verified: ux_store_sales_syspk
+2026-11-16 11:21:43,531 | INFO | Staging loaded: stg_store_sales_d792079a6ac5 | Rows: 28003
+2026-11-16 11:21:43,780 | INFO | Upsert completed. Affected rows: 0
+2026-11-16 11:21:43,784 | INFO | Staging table cleaned up: stg_store_sales_d792079a6ac5
+2026-11-16 11:21:43,813 | INFO | DAILY INGESTION COMPLETED SUCCESSFULLY
+2026-11-16 11:54:49,334 | INFO | ============================================================
+2026-11-16 11:54:49,334 | INFO | DAILY INGESTION STARTED
+2026-11-16 11:54:49,334 | INFO | ============================================================
+2026-11-16 11:54:49,334 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\customer_orders.csv
+2026-11-16 11:54:49,335 | ERROR | DAILY INGESTION FAILED: CSV file not found: C:\DataEngineering\StoreSalesProject\data\customer_orders.csv
+Traceback (most recent call last):
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 762, in run_ingestion
+    df = read_source_file()
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 195, in read_source_file
+    raise FileNotFoundError(
+        f"CSV file not found: {CSV_FILE}"
+    )
+FileNotFoundError: CSV file not found: C:\DataEngineering\StoreSalesProject\data\customer_orders.csv
+2026-11-16 12:04:19,141 | INFO | ============================================================
+2026-11-16 12:04:19,146 | INFO | DAILY INGESTION STARTED
+2026-11-16 12:04:19,146 | INFO | ============================================================
+2026-11-16 12:04:19,146 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\customer_orders.csv
+2026-11-16 12:04:19,147 | ERROR | DAILY INGESTION FAILED: CSV file not found: C:\DataEngineering\StoreSalesProject\data\customer_orders.csv
+Traceback (most recent call last):
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 762, in run_ingestion
+    df = read_source_file()
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 195, in read_source_file
+    raise FileNotFoundError(
+        f"CSV file not found: {CSV_FILE}"
+    )
+FileNotFoundError: CSV file not found: C:\DataEngineering\StoreSalesProject\data\customer_orders.csv
+2026-11-16 17:26:24,993 | INFO | ============================================================
+2026-11-16 17:26:24,994 | INFO | DAILY INGESTION STARTED
+2026-11-16 17:26:24,994 | INFO | ============================================================
+2026-11-16 17:26:24,994 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 17:26:25,243 | ERROR | DAILY INGESTION FAILED: name 'InvalidOperation' is not defined
+Traceback (most recent call last):
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 380, in convert_decimal
+    result = Decimal(str(value))
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 883, in run_ingestion
+    df = read_source_file()
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 395, in read_source_file
+    df[col] = df[col].map(convert_decimal)
+              ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\series.py", line 4719, in map
+    new_values = self._map_values(arg, na_action=na_action)
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\base.py", line 923, in _map_values
+    return arr.map(mapper, na_action=na_action)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\arrays\base.py", line 2322, in map
+    return map_array(self, mapper, na_action=na_action)
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\algorithms.py", line 1743, in map_array
+    return lib.map_infer(values, mapper, convert=convert)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/lib.pyx", line 2999, in pandas._libs.lib.map_infer
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 389, in convert_decimal
+    except (InvalidOperation, ValueError):
+            ^^^^^^^^^^^^^^^^
+NameError: name 'InvalidOperation' is not defined
+2026-11-16 17:56:25,017 | INFO | ============================================================
+2026-11-16 17:56:25,018 | INFO | DAILY INGESTION STARTED
+2026-11-16 17:56:25,018 | INFO | ============================================================
+2026-11-16 17:56:25,018 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 17:56:25,238 | ERROR | DAILY INGESTION FAILED: name 'InvalidOperation' is not defined
+Traceback (most recent call last):
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 380, in convert_decimal
+    result = Decimal(str(value))
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 943, in run_ingestion
+    df = read_source_file()
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 395, in read_source_file
+    df[col] = df[col].map(convert_decimal)
+              ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\series.py", line 4719, in map
+    new_values = self._map_values(arg, na_action=na_action)
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\base.py", line 923, in _map_values
+    return arr.map(mapper, na_action=na_action)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\arrays\base.py", line 2322, in map
+    return map_array(self, mapper, na_action=na_action)
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\algorithms.py", line 1743, in map_array
+    return lib.map_infer(values, mapper, convert=convert)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/lib.pyx", line 2999, in pandas._libs.lib.map_infer
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 389, in convert_decimal
+    except (InvalidOperation, ValueError):
+            ^^^^^^^^^^^^^^^^
+NameError: name 'InvalidOperation' is not defined
+2026-11-16 17:58:55,139 | INFO | ============================================================
+2026-11-16 17:58:55,139 | INFO | DAILY INGESTION STARTED
+2026-11-16 17:58:55,139 | INFO | ============================================================
+2026-11-16 17:58:55,139 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 17:58:55,386 | ERROR | DAILY INGESTION FAILED: name 'InvalidOperation' is not defined
+Traceback (most recent call last):
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 380, in convert_decimal
+    result = Decimal(str(value))
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 943, in run_ingestion
+    df = read_source_file()
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 395, in read_source_file
+    df[col] = df[col].map(convert_decimal)
+              ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\series.py", line 4719, in map
+    new_values = self._map_values(arg, na_action=na_action)
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\base.py", line 923, in _map_values
+    return arr.map(mapper, na_action=na_action)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\arrays\base.py", line 2322, in map
+    return map_array(self, mapper, na_action=na_action)
+  File "C:\Users\1nh19\anaconda3\Lib\site-packages\pandas\core\algorithms.py", line 1743, in map_array
+    return lib.map_infer(values, mapper, convert=convert)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/lib.pyx", line 2999, in pandas._libs.lib.map_infer
+  File "C:\DataEngineering\StoreSalesProject\python\daily_ingestion.py", line 389, in convert_decimal
+    except (InvalidOperation, ValueError):
+            ^^^^^^^^^^^^^^^^
+NameError: name 'InvalidOperation' is not defined
+2026-11-16 17:59:42,578 | INFO | ============================================================
+2026-11-16 17:59:42,579 | INFO | DAILY INGESTION STARTED
+2026-11-16 17:59:42,579 | INFO | ============================================================
+2026-11-16 17:59:42,579 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 17:59:45,151 | INFO | Source duplicate handling completed. Original rows: 28000 | Final rows: 27426 | Duplicate rows removed: 574
+2026-11-16 17:59:45,270 | INFO | Source validation successful. Rows: 27426, Columns: 28
+2026-11-16 17:59:50,353 | INFO | No new source columns detected.
+2026-11-16 17:59:50,357 | INFO | Configured schema contract validated.
+2026-11-16 17:59:50,357 | INFO | Required target columns validated.
+2026-11-16 17:59:50,399 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-16 18:00:06,428 | INFO | Staging loaded: stg_store_sales_9cf964f51966 | Rows: 27426
+2026-11-16 18:00:07,694 | INFO | Upsert completed. Affected rows: 27426
+2026-11-16 18:00:07,699 | INFO | Staging table cleaned up: stg_store_sales_9cf964f51966
+2026-11-16 18:00:07,733 | INFO | DAILY INGESTION COMPLETED SUCCESSFULLY
+2026-11-16 18:15:34,238 | INFO | ============================================================
+2026-11-16 18:15:34,241 | INFO | DAILY INGESTION STARTED
+2026-11-16 18:15:34,241 | INFO | ============================================================
+2026-11-16 18:15:34,241 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 18:15:38,078 | INFO | Source duplicate handling completed. Original rows: 28000 | Final rows: 27426 | Duplicate rows removed: 574
+2026-11-16 18:15:38,317 | INFO | Source validation successful. Rows: 27426, Columns: 28
+2026-11-16 18:15:42,109 | INFO | No new source columns detected.
+2026-11-16 18:15:42,119 | INFO | Configured schema contract validated.
+2026-11-16 18:15:42,119 | INFO | Required target columns validated.
+2026-11-16 18:15:42,137 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-16 18:16:06,153 | INFO | Staging loaded: stg_store_sales_91a233d9bd64 | Rows: 27426
+2026-11-16 18:16:07,795 | INFO | Upsert completed. Affected rows: 27426
+2026-11-16 18:16:07,807 | INFO | Staging table cleaned up: stg_store_sales_91a233d9bd64
+2026-11-16 18:16:07,852 | INFO | DAILY INGESTION COMPLETED SUCCESSFULLY
+2026-11-16 18:19:02,683 | INFO | ============================================================
+2026-11-16 18:19:02,685 | INFO | DAILY INGESTION STARTED
+2026-11-16 18:19:02,686 | INFO | ============================================================
+2026-11-16 18:19:02,686 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 18:19:05,787 | INFO | Source duplicate handling completed. Original rows: 28004 | Final rows: 27430 | Duplicate rows removed: 574
+2026-11-16 18:19:06,006 | INFO | Source validation successful. Rows: 27430, Columns: 28
+2026-11-16 18:19:17,669 | INFO | No new source columns detected.
+2026-11-16 18:19:17,685 | INFO | Configured schema contract validated.
+2026-11-16 18:19:17,686 | INFO | Required target columns validated.
+2026-11-16 18:19:17,804 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-16 18:19:41,837 | INFO | Staging loaded: stg_store_sales_e6049253c9e8 | Rows: 27430
+2026-11-16 18:19:42,511 | INFO | Upsert completed. Affected rows: 4
+2026-11-16 18:19:42,522 | INFO | Staging table cleaned up: stg_store_sales_e6049253c9e8
+2026-11-16 18:19:42,560 | INFO | DAILY INGESTION COMPLETED SUCCESSFULLY
+2026-11-16 18:26:13,710 | INFO | ============================================================
+2026-11-16 18:26:13,711 | INFO | DAILY INGESTION STARTED
+2026-11-16 18:26:13,711 | INFO | ============================================================
+2026-11-16 18:26:13,711 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 18:26:18,206 | INFO | Source duplicate handling completed. Original rows: 28004 | Final rows: 27430 | Duplicate rows removed: 574
+2026-11-16 18:26:18,360 | INFO | Source validation successful. Rows: 27430, Columns: 28
+2026-11-16 18:26:22,099 | INFO | No new source columns detected.
+2026-11-16 18:26:22,109 | INFO | Configured schema contract validated.
+2026-11-16 18:26:22,109 | INFO | Required target columns validated.
+2026-11-16 18:26:22,176 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-16 18:26:45,138 | INFO | Staging loaded: stg_store_sales_9231a0ed0426 | Rows: 27430
+2026-11-16 18:26:45,988 | INFO | Upsert completed. Affected rows: 1
+2026-11-16 18:26:45,994 | INFO | Staging table cleaned up: stg_store_sales_9231a0ed0426
+2026-11-16 18:26:46,048 | INFO | DAILY INGESTION COMPLETED SUCCESSFULLY
+2026-11-16 19:39:43,877 | INFO | ================================================================================
+2026-11-16 19:39:43,880 | INFO | DAILY INGESTION STARTED
+2026-11-16 19:39:43,880 | INFO | COMPOSITE BUSINESS KEY: ['store_code', 'order_id', 'order_date', 'order_line_item']
+2026-11-16 19:39:43,880 | INFO | SOURCE FILE: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 19:39:43,881 | INFO | TARGET TABLE: public.store_sales
+2026-11-16 19:39:43,881 | INFO | ================================================================================
+2026-11-16 19:39:43,881 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 19:39:48,770 | WARNING | QUARANTINE CREATED | rows=574 | file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261116_193948.csv
+2026-11-16 19:39:48,771 | INFO | SOURCE DEDUP SUMMARY | source_rows=28004 | retained_rows=27430 | quarantined_rows=574
+2026-11-16 19:39:48,943 | INFO | SOURCE READ COMPLETE | raw_rows=28004 | clean_rows=27430 | quarantined_rows=574 | quarantine_file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261116_193948.csv
+2026-11-16 19:39:48,949 | INFO | BATCH COUNTS | raw_source=28004 | eligible_clean_source=27430 | quarantined=574
+2026-11-16 19:39:52,486 | INFO | No new source columns detected.
+2026-11-16 19:39:52,499 | INFO | Configured schema contract validated.
+2026-11-16 19:39:52,500 | INFO | Required target columns validated.
+2026-11-16 19:39:52,527 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-16 19:40:18,930 | INFO | Staging loaded: stg_store_sales_fa6ce46612e3 | Rows: 27430
+2026-11-16 19:40:18,981 | INFO | PRE-UPSERT CLASSIFICATION | new=27430 | changed_existing=0 | unchanged_existing=0
+2026-11-16 19:40:20,319 | INFO | UPSERT EXECUTED | PostgreSQL affected_rows=27430 (insert + actual update; excludes unchanged conflicts)
+2026-11-16 19:40:20,677 | INFO | SOURCE-TO-TARGET VALIDATION | clean_source_rows=27430 | exact_target_matches=27430 | mismatches_or_missing=0
+2026-11-16 19:40:21,373 | INFO | QUARANTINE TARGET CHECK | quarantined_occurrences=574 | exact_value_matches_in_target=574 | not_exactly_present=0
+2026-11-16 19:40:21,386 | INFO | QUARANTINE INSERTION CONTROL | quarantined_rows_submitted_to_staging=0 | total_quarantined=574
+2026-11-16 19:40:21,386 | INFO | FINAL RECONCILIATION | raw_source=28004 | clean_source=27430 | quarantined=574 | staged=27430 | inserted_expected=27430 | updated_expected=0 | unchanged_expected=0 | postgres_affected=27430 | target_exact_matches=27430 | target_mismatches=0 | quarantine_exact_matches=574
+2026-11-16 19:40:21,386 | INFO | QUARANTINE POLICY | quarantined rows were excluded from the clean staging table; exact-value matches can still occur when a quarantined duplicate is identical to the retained row.
+2026-11-16 19:40:21,388 | INFO | Staging table cleaned up: stg_store_sales_fa6ce46612e3
+2026-11-16 19:40:21,437 | INFO | DAILY INGESTION COMMITTED SUCCESSFULLY
+2026-11-16 19:40:21,441 | INFO | Database engine disposed; connection pool closed.
+2026-11-16 20:21:52,950 | INFO | ================================================================================
+2026-11-16 20:21:52,951 | INFO | DAILY INGESTION STARTED
+2026-11-16 20:21:52,951 | INFO | COMPOSITE BUSINESS KEY: ['store_code', 'order_id', 'order_date', 'order_line_item']
+2026-11-16 20:21:52,951 | INFO | SOURCE FILE: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 20:21:52,952 | INFO | TARGET TABLE: public.store_sales
+2026-11-16 20:21:52,952 | INFO | ================================================================================
+2026-11-16 20:21:52,952 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-16 20:21:58,010 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD09', 'ORD-HYD01-1644', datetime.date(2026, 9, 30), np.int64(1)) | rows=2
+2026-11-16 20:21:58,014 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM09', 'ORD-SHARED-01368', datetime.date(2026, 9, 30), np.int64(1)) | rows=2
+2026-11-16 20:21:58,019 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI09', 'ORD-NOI02-1665', datetime.date(2026, 9, 30), np.int64(1)) | rows=2
+2026-11-16 20:21:58,343 | WARNING | QUARANTINE CREATED | rows=580 | file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261116_202158.csv
+2026-11-16 20:21:58,344 | INFO | SOURCE DEDUP SUMMARY | source_rows=28008 | retained_rows=27428 | quarantined_rows=580
+2026-11-16 20:21:58,474 | INFO | SOURCE READ COMPLETE | raw_rows=28008 | clean_rows=27428 | quarantined_rows=580 | quarantine_file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261116_202158.csv
+2026-11-16 20:21:58,480 | INFO | BATCH COUNTS | raw_source=28008 | eligible_clean_source=27428 | quarantined=580
+2026-11-16 20:22:02,341 | INFO | Configured schema contract validated.
+2026-11-16 20:22:02,395 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-16 20:22:20,134 | INFO | Staging loaded: stg_store_sales_ebf2bb2b6678 | Rows: 27428
+2026-11-16 20:22:20,357 | INFO | PRE-UPSERT CLASSIFICATION | new=1 | changed_existing=0 | unchanged_existing=27427
+2026-11-16 20:22:20,773 | INFO | UPSERT EXECUTED | PostgreSQL affected_rows=1
+2026-11-16 20:22:21,014 | INFO | SOURCE-TO-TARGET VALIDATION | clean_source_rows=27428 | exact_target_matches=27428 | mismatches_or_missing=0
+2026-11-16 20:22:21,385 | INFO | QUARANTINE TARGET CHECK | quarantined_occurrences=580 | exact_value_matches_in_target=576 | not_exactly_present=4
+2026-11-16 20:22:21,396 | INFO | FINAL RECONCILIATION | raw_source=28008 | clean_source=27428 | quarantined=580 | staged=27428 | inserted=1 | updated=0 | unchanged=27427 | postgres_affected=1 | matched=27428
+2026-11-16 20:22:21,397 | INFO | Staging table cleaned up: stg_store_sales_ebf2bb2b6678
+2026-11-16 20:25:47,154 | INFO | ================================================================================
+2026-11-16 20:25:47,155 | INFO | DAILY INGESTION STARTED
+2026-11-16 20:25:47,155 | INFO | COMPOSITE BUSINESS KEY: ['store_code', 'order_id', 'order_date', 'order_line_item']
+2026-11-16 20:25:47,155 | INFO | SOURCE FILE: C:\DataEngineering\StoreSalesProject\data\dropped_column_datefchanged_store_sales_base_initial_v306_28k_v1.1.csv
+2026-11-16 20:25:47,155 | INFO | TARGET TABLE: public.store_sales
+2026-11-16 20:25:47,155 | INFO | ================================================================================
+2026-11-16 20:25:47,155 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\dropped_column_datefchanged_store_sales_base_initial_v306_28k_v1.1.csv
+2026-11-16 20:25:47,896 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-SHARED-00469', datetime.date(2025, 1, 3), np.int64(3)) | rows=2
+2026-11-16 20:25:47,901 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1694', datetime.date(2025, 1, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:47,906 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1313', datetime.date(2025, 1, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:47,911 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1043', datetime.date(2025, 1, 5), np.int64(3)) | rows=2
+2026-11-16 20:25:47,916 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1257', datetime.date(2025, 1, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:47,922 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1214', datetime.date(2025, 1, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:47,927 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1169', datetime.date(2025, 1, 8), np.int64(3)) | rows=2
+2026-11-16 20:25:47,931 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1464', datetime.date(2025, 1, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:47,936 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-SHARED-01070', datetime.date(2025, 1, 12), np.int64(2)) | rows=2
+2026-11-16 20:25:47,941 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1135', datetime.date(2025, 1, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:47,946 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-SHARED-02363', datetime.date(2025, 1, 15), np.int64(3)) | rows=2
+2026-11-16 20:25:47,951 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1095', datetime.date(2025, 1, 15), np.int64(2)) | rows=2
+2026-11-16 20:25:47,956 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1698', datetime.date(2025, 1, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:47,962 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1271', datetime.date(2025, 1, 23), np.int64(3)) | rows=2
+2026-11-16 20:25:47,967 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1746', datetime.date(2025, 1, 23), np.int64(2)) | rows=2
+2026-11-16 20:25:47,973 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1172', datetime.date(2025, 1, 24), np.int64(2)) | rows=2
+2026-11-16 20:25:47,980 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1723', datetime.date(2025, 1, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:47,985 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1016', datetime.date(2025, 1, 27), np.int64(2)) | rows=2
+2026-11-16 20:25:47,991 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1671', datetime.date(2025, 1, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:47,997 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1109', datetime.date(2025, 1, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:48,003 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1189', datetime.date(2025, 1, 29), np.int64(2)) | rows=2
+2026-11-16 20:25:48,008 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-03090', datetime.date(2025, 1, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:48,013 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-SHARED-00206', datetime.date(2025, 1, 31), np.int64(1)) | rows=2
+2026-11-16 20:25:48,019 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-SHARED-00955', datetime.date(2025, 2, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:48,025 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1184', datetime.date(2025, 2, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:48,031 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1638', datetime.date(2025, 2, 1), np.int64(2)) | rows=2
+2026-11-16 20:25:48,036 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1242', datetime.date(2025, 2, 1), np.int64(2)) | rows=2
+2026-11-16 20:25:48,041 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-SHARED-01770', datetime.date(2025, 2, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:48,047 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1047', datetime.date(2025, 2, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:48,052 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1130', datetime.date(2025, 2, 6), np.int64(3)) | rows=2
+2026-11-16 20:25:48,057 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1489', datetime.date(2025, 2, 7), np.int64(2)) | rows=2
+2026-11-16 20:25:48,062 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1355', datetime.date(2025, 2, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:48,067 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1140', datetime.date(2025, 2, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:48,072 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1186', datetime.date(2025, 2, 14), np.int64(3)) | rows=2
+2026-11-16 20:25:48,077 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-SHARED-02063', datetime.date(2025, 2, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:48,082 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1761', datetime.date(2025, 2, 19), np.int64(3)) | rows=2
+2026-11-16 20:25:48,088 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1280', datetime.date(2025, 2, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:48,093 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-01952', datetime.date(2025, 2, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:48,098 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1250', datetime.date(2025, 2, 20), np.int64(2)) | rows=2
+2026-11-16 20:25:48,103 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1642', datetime.date(2025, 2, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:48,109 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1420', datetime.date(2025, 2, 23), np.int64(1)) | rows=2
+2026-11-16 20:25:48,114 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1669', datetime.date(2025, 3, 1), np.int64(2)) | rows=2
+2026-11-16 20:25:48,119 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1051', datetime.date(2025, 3, 2), np.int64(2)) | rows=2
+2026-11-16 20:25:48,124 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-SHARED-02683', datetime.date(2025, 3, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:48,129 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-SHARED-02451', datetime.date(2025, 3, 3), np.int64(2)) | rows=2
+2026-11-16 20:25:48,134 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1601', datetime.date(2025, 3, 4), np.int64(3)) | rows=2
+2026-11-16 20:25:48,140 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1044', datetime.date(2025, 3, 4), np.int64(3)) | rows=2
+2026-11-16 20:25:48,145 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1544', datetime.date(2025, 3, 5), np.int64(2)) | rows=2
+2026-11-16 20:25:48,150 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1389', datetime.date(2025, 3, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:48,155 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1626', datetime.date(2025, 3, 9), np.int64(1)) | rows=2
+2026-11-16 20:25:48,160 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1633', datetime.date(2025, 3, 9), np.int64(3)) | rows=2
+2026-11-16 20:25:48,165 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-SHARED-00380', datetime.date(2025, 3, 10), np.int64(3)) | rows=2
+2026-11-16 20:25:48,170 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1631', datetime.date(2025, 3, 10), np.int64(3)) | rows=2
+2026-11-16 20:25:48,175 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1670', datetime.date(2025, 3, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:48,180 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1224', datetime.date(2025, 3, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:48,185 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1657', datetime.date(2025, 3, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:48,190 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1006', datetime.date(2025, 3, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:48,195 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1261', datetime.date(2025, 3, 15), np.int64(3)) | rows=2
+2026-11-16 20:25:48,201 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1513', datetime.date(2025, 3, 17), np.int64(2)) | rows=2
+2026-11-16 20:25:48,206 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1221', datetime.date(2025, 3, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:48,214 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1221', datetime.date(2025, 3, 17), np.int64(3)) | rows=2
+2026-11-16 20:25:48,220 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1698', datetime.date(2025, 3, 18), np.int64(1)) | rows=2
+2026-11-16 20:25:48,225 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1331', datetime.date(2025, 3, 18), np.int64(3)) | rows=2
+2026-11-16 20:25:48,230 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1647', datetime.date(2025, 3, 19), np.int64(2)) | rows=2
+2026-11-16 20:25:48,235 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1591', datetime.date(2025, 3, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:48,241 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1758', datetime.date(2025, 3, 20), np.int64(2)) | rows=2
+2026-11-16 20:25:48,247 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1304', datetime.date(2025, 3, 20), np.int64(3)) | rows=2
+2026-11-16 20:25:48,253 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1389', datetime.date(2025, 3, 22), np.int64(2)) | rows=2
+2026-11-16 20:25:48,259 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1013', datetime.date(2025, 3, 23), np.int64(1)) | rows=2
+2026-11-16 20:25:48,264 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-SHARED-00258', datetime.date(2025, 3, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:48,269 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-02316', datetime.date(2025, 3, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:48,274 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1636', datetime.date(2025, 3, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:48,279 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1176', datetime.date(2025, 3, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:48,285 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1630', datetime.date(2025, 3, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:48,290 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1262', datetime.date(2025, 3, 30), np.int64(3)) | rows=2
+2026-11-16 20:25:48,299 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1525', datetime.date(2025, 3, 31), np.int64(2)) | rows=2
+2026-11-16 20:25:48,304 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-SHARED-01438', datetime.date(2025, 4, 3), np.int64(2)) | rows=2
+2026-11-16 20:25:48,310 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1696', datetime.date(2025, 4, 3), np.int64(1)) | rows=2
+2026-11-16 20:25:48,316 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1182', datetime.date(2025, 4, 4), np.int64(2)) | rows=2
+2026-11-16 20:25:48,322 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1221', datetime.date(2025, 4, 9), np.int64(2)) | rows=2
+2026-11-16 20:25:48,328 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1554', datetime.date(2025, 4, 9), np.int64(1)) | rows=2
+2026-11-16 20:25:48,334 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1123', datetime.date(2025, 4, 11), np.int64(2)) | rows=2
+2026-11-16 20:25:48,339 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1557', datetime.date(2025, 4, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:48,347 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1557', datetime.date(2025, 4, 17), np.int64(3)) | rows=2
+2026-11-16 20:25:48,353 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-SHARED-01277', datetime.date(2025, 4, 17), np.int64(2)) | rows=2
+2026-11-16 20:25:48,359 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1140', datetime.date(2025, 4, 18), np.int64(1)) | rows=2
+2026-11-16 20:25:48,364 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-SHARED-00720', datetime.date(2025, 4, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:48,369 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1635', datetime.date(2025, 4, 20), np.int64(3)) | rows=2
+2026-11-16 20:25:48,374 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1790', datetime.date(2025, 4, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:48,379 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1241', datetime.date(2025, 4, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:48,386 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1234', datetime.date(2025, 4, 20), np.int64(2)) | rows=2
+2026-11-16 20:25:48,392 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1580', datetime.date(2025, 4, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:48,400 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1437', datetime.date(2025, 4, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:48,408 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1129', datetime.date(2025, 4, 23), np.int64(1)) | rows=2
+2026-11-16 20:25:48,414 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1498', datetime.date(2025, 4, 26), np.int64(3)) | rows=2
+2026-11-16 20:25:48,420 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1294', datetime.date(2025, 4, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:48,426 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1546', datetime.date(2025, 4, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:48,432 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-01840', datetime.date(2025, 4, 29), np.int64(1)) | rows=2
+2026-11-16 20:25:48,440 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1276', datetime.date(2025, 4, 30), np.int64(2)) | rows=2
+2026-11-16 20:25:48,446 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1587', datetime.date(2025, 5, 2), np.int64(2)) | rows=2
+2026-11-16 20:25:48,455 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1083', datetime.date(2025, 5, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:48,460 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-SHARED-01845', datetime.date(2025, 5, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:48,466 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1656', datetime.date(2025, 5, 6), np.int64(2)) | rows=2
+2026-11-16 20:25:48,472 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1776', datetime.date(2025, 5, 8), np.int64(2)) | rows=2
+2026-11-16 20:25:48,477 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1035', datetime.date(2025, 5, 9), np.int64(1)) | rows=2
+2026-11-16 20:25:48,482 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1278', datetime.date(2025, 5, 10), np.int64(1)) | rows=2
+2026-11-16 20:25:48,486 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1049', datetime.date(2025, 5, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:48,491 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1727', datetime.date(2025, 5, 11), np.int64(2)) | rows=2
+2026-11-16 20:25:48,497 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1660', datetime.date(2025, 5, 12), np.int64(2)) | rows=2
+2026-11-16 20:25:48,502 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1021', datetime.date(2025, 5, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:48,507 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-SHARED-02140', datetime.date(2025, 5, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:48,514 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-SHARED-00269', datetime.date(2025, 5, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:48,519 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1114', datetime.date(2025, 5, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:48,524 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1114', datetime.date(2025, 5, 15), np.int64(2)) | rows=2
+2026-11-16 20:25:48,530 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1729', datetime.date(2025, 5, 16), np.int64(2)) | rows=2
+2026-11-16 20:25:48,537 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-02457', datetime.date(2025, 5, 16), np.int64(2)) | rows=2
+2026-11-16 20:25:48,543 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1072', datetime.date(2025, 5, 18), np.int64(2)) | rows=2
+2026-11-16 20:25:48,550 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1424', datetime.date(2025, 5, 20), np.int64(3)) | rows=2
+2026-11-16 20:25:48,556 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1733', datetime.date(2025, 5, 20), np.int64(2)) | rows=2
+2026-11-16 20:25:48,565 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1402', datetime.date(2025, 5, 21), np.int64(2)) | rows=2
+2026-11-16 20:25:48,571 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-SHARED-02076', datetime.date(2025, 5, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:48,579 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1424', datetime.date(2025, 5, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:48,584 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1314', datetime.date(2025, 5, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:48,591 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1368', datetime.date(2025, 5, 27), np.int64(2)) | rows=2
+2026-11-16 20:25:48,596 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1728', datetime.date(2025, 5, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:48,602 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-SHARED-03138', datetime.date(2025, 5, 29), np.int64(1)) | rows=2
+2026-11-16 20:25:48,608 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1258', datetime.date(2025, 5, 30), np.int64(2)) | rows=2
+2026-11-16 20:25:48,614 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-01637', datetime.date(2025, 5, 30), np.int64(2)) | rows=2
+2026-11-16 20:25:48,620 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1091', datetime.date(2025, 6, 1), np.int64(2)) | rows=2
+2026-11-16 20:25:48,628 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1341', datetime.date(2025, 6, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:48,637 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-SHARED-01033', datetime.date(2025, 6, 3), np.int64(3)) | rows=2
+2026-11-16 20:25:48,645 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-SHARED-01729', datetime.date(2025, 6, 5), np.int64(2)) | rows=2
+2026-11-16 20:25:48,652 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1756', datetime.date(2025, 6, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:48,659 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-01093', datetime.date(2025, 6, 7), np.int64(2)) | rows=2
+2026-11-16 20:25:48,667 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1681', datetime.date(2025, 6, 10), np.int64(1)) | rows=2
+2026-11-16 20:25:48,675 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1068', datetime.date(2025, 6, 11), np.int64(2)) | rows=2
+2026-11-16 20:25:48,680 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1602', datetime.date(2025, 6, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:48,686 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1602', datetime.date(2025, 6, 13), np.int64(2)) | rows=2
+2026-11-16 20:25:48,691 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-SHARED-00357', datetime.date(2025, 6, 13), np.int64(2)) | rows=2
+2026-11-16 20:25:48,698 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-00660', datetime.date(2025, 6, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:48,703 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1599', datetime.date(2025, 6, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:48,708 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-SHARED-02430', datetime.date(2025, 6, 18), np.int64(1)) | rows=2
+2026-11-16 20:25:48,714 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1806', datetime.date(2025, 6, 18), np.int64(2)) | rows=2
+2026-11-16 20:25:48,719 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1316', datetime.date(2025, 6, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:48,726 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1306', datetime.date(2025, 6, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:48,733 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1624', datetime.date(2025, 6, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:48,742 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1009', datetime.date(2025, 6, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:48,748 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1090', datetime.date(2025, 6, 23), np.int64(1)) | rows=2
+2026-11-16 20:25:48,756 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1032', datetime.date(2025, 6, 24), np.int64(3)) | rows=2
+2026-11-16 20:25:48,763 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1046', datetime.date(2025, 6, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:48,768 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1608', datetime.date(2025, 6, 25), np.int64(3)) | rows=2
+2026-11-16 20:25:48,773 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-SHARED-01170', datetime.date(2025, 6, 25), np.int64(1)) | rows=2
+2026-11-16 20:25:48,779 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1224', datetime.date(2025, 6, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:48,787 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1463', datetime.date(2025, 6, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:48,798 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-SHARED-01524', datetime.date(2025, 6, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:48,806 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1272', datetime.date(2025, 7, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:48,812 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1259', datetime.date(2025, 7, 2), np.int64(3)) | rows=2
+2026-11-16 20:25:48,817 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1127', datetime.date(2025, 7, 5), np.int64(2)) | rows=2
+2026-11-16 20:25:48,822 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1170', datetime.date(2025, 7, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:48,828 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1231', datetime.date(2025, 7, 6), np.int64(3)) | rows=2
+2026-11-16 20:25:48,835 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1051', datetime.date(2025, 7, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:48,842 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1606', datetime.date(2025, 7, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:48,848 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1268', datetime.date(2025, 7, 10), np.int64(1)) | rows=2
+2026-11-16 20:25:48,855 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1613', datetime.date(2025, 7, 10), np.int64(1)) | rows=2
+2026-11-16 20:25:48,864 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1316', datetime.date(2025, 7, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:48,873 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1392', datetime.date(2025, 7, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:48,880 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1566', datetime.date(2025, 7, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:48,887 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-SHARED-01762', datetime.date(2025, 7, 14), np.int64(2)) | rows=2
+2026-11-16 20:25:48,894 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1103', datetime.date(2025, 7, 16), np.int64(2)) | rows=2
+2026-11-16 20:25:48,903 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1795', datetime.date(2025, 7, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:48,909 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1161', datetime.date(2025, 7, 17), np.int64(2)) | rows=2
+2026-11-16 20:25:48,914 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1694', datetime.date(2025, 7, 19), np.int64(2)) | rows=2
+2026-11-16 20:25:48,920 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1437', datetime.date(2025, 7, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:48,924 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1166', datetime.date(2025, 7, 21), np.int64(2)) | rows=2
+2026-11-16 20:25:48,929 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1772', datetime.date(2025, 7, 22), np.int64(2)) | rows=2
+2026-11-16 20:25:48,934 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-SHARED-00375', datetime.date(2025, 7, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:48,938 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1052', datetime.date(2025, 7, 27), np.int64(2)) | rows=2
+2026-11-16 20:25:48,943 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-SHARED-00674', datetime.date(2025, 7, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:48,948 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1460', datetime.date(2025, 7, 31), np.int64(1)) | rows=2
+2026-11-16 20:25:48,953 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1784', datetime.date(2025, 8, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:48,958 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1007', datetime.date(2025, 8, 3), np.int64(2)) | rows=2
+2026-11-16 20:25:48,963 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-SHARED-00162', datetime.date(2025, 8, 3), np.int64(1)) | rows=2
+2026-11-16 20:25:48,967 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1243', datetime.date(2025, 8, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:48,972 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-00864', datetime.date(2025, 8, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:48,977 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-SHARED-03191', datetime.date(2025, 8, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:48,983 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1033', datetime.date(2025, 8, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:48,988 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1398', datetime.date(2025, 8, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:48,994 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1713', datetime.date(2025, 8, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:48,999 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1424', datetime.date(2025, 8, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:49,004 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1175', datetime.date(2025, 8, 9), np.int64(3)) | rows=2
+2026-11-16 20:25:49,009 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1661', datetime.date(2025, 8, 10), np.int64(1)) | rows=2
+2026-11-16 20:25:49,014 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1019', datetime.date(2025, 8, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:49,019 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1645', datetime.date(2025, 8, 12), np.int64(2)) | rows=2
+2026-11-16 20:25:49,024 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1734', datetime.date(2025, 8, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:49,029 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-01117', datetime.date(2025, 8, 13), np.int64(2)) | rows=2
+2026-11-16 20:25:49,035 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-SHARED-01316', datetime.date(2025, 8, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:49,040 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1191', datetime.date(2025, 8, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:49,045 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-SHARED-02834', datetime.date(2025, 8, 15), np.int64(2)) | rows=2
+2026-11-16 20:25:49,050 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1580', datetime.date(2025, 8, 16), np.int64(2)) | rows=2
+2026-11-16 20:25:49,056 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1242', datetime.date(2025, 8, 17), np.int64(3)) | rows=2
+2026-11-16 20:25:49,061 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-SHARED-01837', datetime.date(2025, 8, 17), np.int64(3)) | rows=2
+2026-11-16 20:25:49,066 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1277', datetime.date(2025, 8, 25), np.int64(3)) | rows=2
+2026-11-16 20:25:49,071 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1094', datetime.date(2025, 8, 25), np.int64(1)) | rows=2
+2026-11-16 20:25:49,077 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1286', datetime.date(2025, 8, 31), np.int64(1)) | rows=2
+2026-11-16 20:25:49,082 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-01046', datetime.date(2025, 9, 2), np.int64(2)) | rows=2
+2026-11-16 20:25:49,086 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1403', datetime.date(2025, 9, 3), np.int64(3)) | rows=2
+2026-11-16 20:25:49,091 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1139', datetime.date(2025, 9, 4), np.int64(3)) | rows=2
+2026-11-16 20:25:49,096 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1718', datetime.date(2025, 9, 6), np.int64(2)) | rows=2
+2026-11-16 20:25:49,101 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1684', datetime.date(2025, 9, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:49,106 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1296', datetime.date(2025, 9, 9), np.int64(1)) | rows=2
+2026-11-16 20:25:49,111 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1394', datetime.date(2025, 9, 13), np.int64(2)) | rows=2
+2026-11-16 20:25:49,116 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1045', datetime.date(2025, 9, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:49,121 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1169', datetime.date(2025, 9, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:49,126 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1733', datetime.date(2025, 9, 16), np.int64(3)) | rows=2
+2026-11-16 20:25:49,131 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-SHARED-01356', datetime.date(2025, 9, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:49,136 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1681', datetime.date(2025, 9, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:49,141 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1741', datetime.date(2025, 9, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:49,147 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1448', datetime.date(2025, 9, 18), np.int64(2)) | rows=2
+2026-11-16 20:25:49,152 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1311', datetime.date(2025, 9, 18), np.int64(1)) | rows=2
+2026-11-16 20:25:49,159 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1523', datetime.date(2025, 9, 19), np.int64(2)) | rows=2
+2026-11-16 20:25:49,164 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1193', datetime.date(2025, 9, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:49,170 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1532', datetime.date(2025, 9, 20), np.int64(2)) | rows=2
+2026-11-16 20:25:49,176 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1706', datetime.date(2025, 9, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:49,181 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1144', datetime.date(2025, 9, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:49,187 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1160', datetime.date(2025, 9, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:49,193 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1747', datetime.date(2025, 9, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:49,198 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1165', datetime.date(2025, 9, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:49,204 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1005', datetime.date(2025, 9, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:49,210 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1759', datetime.date(2025, 9, 25), np.int64(1)) | rows=2
+2026-11-16 20:25:49,215 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1580', datetime.date(2025, 9, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:49,221 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1463', datetime.date(2025, 9, 25), np.int64(1)) | rows=2
+2026-11-16 20:25:49,229 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1179', datetime.date(2025, 9, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:49,235 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1300', datetime.date(2025, 9, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:49,241 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1263', datetime.date(2025, 9, 30), np.int64(3)) | rows=2
+2026-11-16 20:25:49,247 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1725', datetime.date(2025, 10, 2), np.int64(3)) | rows=2
+2026-11-16 20:25:49,253 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1540', datetime.date(2025, 10, 2), np.int64(3)) | rows=2
+2026-11-16 20:25:49,260 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1611', datetime.date(2025, 10, 2), np.int64(2)) | rows=2
+2026-11-16 20:25:49,265 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1021', datetime.date(2025, 10, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:49,270 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-SHARED-00668', datetime.date(2025, 10, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:49,275 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1366', datetime.date(2025, 10, 10), np.int64(2)) | rows=2
+2026-11-16 20:25:49,280 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1208', datetime.date(2025, 10, 10), np.int64(1)) | rows=2
+2026-11-16 20:25:49,285 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1033', datetime.date(2025, 10, 11), np.int64(2)) | rows=2
+2026-11-16 20:25:49,290 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1622', datetime.date(2025, 10, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:49,295 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1360', datetime.date(2025, 10, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:49,300 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1219', datetime.date(2025, 10, 14), np.int64(2)) | rows=2
+2026-11-16 20:25:49,307 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1290', datetime.date(2025, 10, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:49,312 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1586', datetime.date(2025, 10, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:49,318 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-SHARED-01984', datetime.date(2025, 10, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:49,323 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1013', datetime.date(2025, 10, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:49,328 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-SHARED-00144', datetime.date(2025, 10, 18), np.int64(2)) | rows=2
+2026-11-16 20:25:49,335 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1100', datetime.date(2025, 10, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:49,343 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1102', datetime.date(2025, 10, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:49,351 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1587', datetime.date(2025, 10, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:49,357 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1253', datetime.date(2025, 10, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:49,362 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1696', datetime.date(2025, 10, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:49,368 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1255', datetime.date(2025, 10, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:49,373 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1228', datetime.date(2025, 10, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:49,379 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1365', datetime.date(2025, 10, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:49,383 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-00213', datetime.date(2025, 10, 28), np.int64(2)) | rows=2
+2026-11-16 20:25:49,388 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1676', datetime.date(2025, 10, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:49,392 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1334', datetime.date(2025, 10, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:49,397 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1351', datetime.date(2025, 10, 29), np.int64(1)) | rows=2
+2026-11-16 20:25:49,401 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1077', datetime.date(2025, 10, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:49,406 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-SHARED-01813', datetime.date(2025, 10, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:49,411 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1077', datetime.date(2025, 10, 31), np.int64(2)) | rows=2
+2026-11-16 20:25:49,416 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1063', datetime.date(2025, 11, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:49,421 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-00597', datetime.date(2025, 11, 1), np.int64(3)) | rows=2
+2026-11-16 20:25:49,425 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1137', datetime.date(2025, 11, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:49,430 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1592', datetime.date(2025, 11, 2), np.int64(2)) | rows=2
+2026-11-16 20:25:49,436 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1652', datetime.date(2025, 11, 3), np.int64(2)) | rows=2
+2026-11-16 20:25:49,440 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1179', datetime.date(2025, 11, 3), np.int64(2)) | rows=2
+2026-11-16 20:25:49,445 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1376', datetime.date(2025, 11, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:49,450 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1477', datetime.date(2025, 11, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:49,456 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1498', datetime.date(2025, 11, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:49,464 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1072', datetime.date(2025, 11, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:49,471 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1414', datetime.date(2025, 11, 8), np.int64(2)) | rows=2
+2026-11-16 20:25:49,479 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-SHARED-01364', datetime.date(2025, 11, 11), np.int64(3)) | rows=2
+2026-11-16 20:25:49,484 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-SHARED-03028', datetime.date(2025, 11, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:49,489 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1534', datetime.date(2025, 11, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:49,494 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1481', datetime.date(2025, 11, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:49,499 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1246', datetime.date(2025, 11, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:49,504 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1720', datetime.date(2025, 11, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:49,509 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1127', datetime.date(2025, 11, 16), np.int64(3)) | rows=2
+2026-11-16 20:25:49,514 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1554', datetime.date(2025, 11, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:49,519 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1125', datetime.date(2025, 11, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:49,524 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1536', datetime.date(2025, 11, 17), np.int64(2)) | rows=2
+2026-11-16 20:25:49,528 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-01413', datetime.date(2025, 11, 20), np.int64(3)) | rows=2
+2026-11-16 20:25:49,533 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-01615', datetime.date(2025, 11, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:49,539 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1154', datetime.date(2025, 11, 23), np.int64(2)) | rows=2
+2026-11-16 20:25:49,546 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1085', datetime.date(2025, 11, 26), np.int64(2)) | rows=2
+2026-11-16 20:25:49,553 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-01349', datetime.date(2025, 11, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:49,560 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1306', datetime.date(2025, 11, 27), np.int64(3)) | rows=2
+2026-11-16 20:25:49,565 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-02771', datetime.date(2025, 11, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:49,569 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-SHARED-02376', datetime.date(2025, 11, 28), np.int64(2)) | rows=2
+2026-11-16 20:25:49,574 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1440', datetime.date(2025, 11, 29), np.int64(1)) | rows=2
+2026-11-16 20:25:49,578 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1332', datetime.date(2025, 11, 29), np.int64(2)) | rows=2
+2026-11-16 20:25:49,582 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1556', datetime.date(2025, 12, 1), np.int64(2)) | rows=2
+2026-11-16 20:25:49,586 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1010', datetime.date(2025, 12, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:49,590 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1588', datetime.date(2025, 12, 3), np.int64(1)) | rows=2
+2026-11-16 20:25:49,594 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1569', datetime.date(2025, 12, 5), np.int64(3)) | rows=2
+2026-11-16 20:25:49,599 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-SHARED-01104', datetime.date(2025, 12, 8), np.int64(2)) | rows=2
+2026-11-16 20:25:49,603 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-SHARED-00349', datetime.date(2025, 12, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:49,607 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-SHARED-00248', datetime.date(2025, 12, 9), np.int64(1)) | rows=2
+2026-11-16 20:25:49,611 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1749', datetime.date(2025, 12, 9), np.int64(2)) | rows=2
+2026-11-16 20:25:49,615 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1202', datetime.date(2025, 12, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:49,620 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-SHARED-00407', datetime.date(2025, 12, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:49,624 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1576', datetime.date(2025, 12, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:49,628 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1539', datetime.date(2025, 12, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:49,632 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1364', datetime.date(2025, 12, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:49,636 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1078', datetime.date(2025, 12, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:49,640 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-02919', datetime.date(2025, 12, 20), np.int64(2)) | rows=2
+2026-11-16 20:25:49,644 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1039', datetime.date(2025, 12, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:49,649 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-SHARED-02333', datetime.date(2025, 12, 23), np.int64(3)) | rows=2
+2026-11-16 20:25:49,653 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1398', datetime.date(2025, 12, 23), np.int64(3)) | rows=2
+2026-11-16 20:25:49,658 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1254', datetime.date(2025, 12, 25), np.int64(1)) | rows=2
+2026-11-16 20:25:49,663 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1139', datetime.date(2025, 12, 25), np.int64(3)) | rows=2
+2026-11-16 20:25:49,668 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-SHARED-00416', datetime.date(2025, 12, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:49,672 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1127', datetime.date(2025, 12, 26), np.int64(3)) | rows=2
+2026-11-16 20:25:49,676 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1633', datetime.date(2025, 12, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:49,681 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1561', datetime.date(2025, 12, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:49,687 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1033', datetime.date(2025, 12, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:49,693 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1230', datetime.date(2025, 12, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:49,700 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1735', datetime.date(2025, 12, 28), np.int64(3)) | rows=2
+2026-11-16 20:25:49,705 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1402', datetime.date(2025, 12, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:49,709 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1230', datetime.date(2025, 12, 31), np.int64(1)) | rows=2
+2026-11-16 20:25:49,714 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-SHARED-02141', datetime.date(2026, 1, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:49,718 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-SHARED-03053', datetime.date(2026, 1, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:49,723 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1234', datetime.date(2026, 1, 1), np.int64(2)) | rows=2
+2026-11-16 20:25:49,728 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1098', datetime.date(2026, 1, 1), np.int64(2)) | rows=2
+2026-11-16 20:25:49,732 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-00061', datetime.date(2026, 1, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:49,737 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-SHARED-00412', datetime.date(2026, 1, 4), np.int64(2)) | rows=2
+2026-11-16 20:25:49,741 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-SHARED-02509', datetime.date(2026, 1, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:49,746 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1303', datetime.date(2026, 1, 5), np.int64(2)) | rows=2
+2026-11-16 20:25:49,750 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1488', datetime.date(2026, 1, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:49,755 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1749', datetime.date(2026, 1, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:49,760 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1113', datetime.date(2026, 1, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:49,764 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1007', datetime.date(2026, 1, 7), np.int64(2)) | rows=2
+2026-11-16 20:25:49,768 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1503', datetime.date(2026, 1, 10), np.int64(1)) | rows=2
+2026-11-16 20:25:49,773 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1730', datetime.date(2026, 1, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:49,777 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1265', datetime.date(2026, 1, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:49,782 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1569', datetime.date(2026, 1, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:49,786 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1720', datetime.date(2026, 1, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:49,791 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1345', datetime.date(2026, 1, 12), np.int64(3)) | rows=2
+2026-11-16 20:25:49,795 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-01997', datetime.date(2026, 1, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:49,800 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-SHARED-00359', datetime.date(2026, 1, 15), np.int64(3)) | rows=2
+2026-11-16 20:25:49,804 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1142', datetime.date(2026, 1, 16), np.int64(3)) | rows=2
+2026-11-16 20:25:49,808 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1132', datetime.date(2026, 1, 17), np.int64(3)) | rows=2
+2026-11-16 20:25:49,813 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1304', datetime.date(2026, 1, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:49,817 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1180', datetime.date(2026, 1, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:49,822 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1236', datetime.date(2026, 1, 21), np.int64(1)) | rows=2
+2026-11-16 20:25:49,826 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1236', datetime.date(2026, 1, 21), np.int64(3)) | rows=2
+2026-11-16 20:25:49,830 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1440', datetime.date(2026, 1, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:49,835 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-02179', datetime.date(2026, 1, 22), np.int64(2)) | rows=2
+2026-11-16 20:25:49,839 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-02422', datetime.date(2026, 1, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:49,844 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1408', datetime.date(2026, 1, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:49,848 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1367', datetime.date(2026, 1, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:49,852 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1651', datetime.date(2026, 1, 28), np.int64(2)) | rows=2
+2026-11-16 20:25:49,856 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1042', datetime.date(2026, 1, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:49,861 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-SHARED-01780', datetime.date(2026, 1, 29), np.int64(2)) | rows=2
+2026-11-16 20:25:49,865 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-02101', datetime.date(2026, 1, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:49,869 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1726', datetime.date(2026, 1, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:49,874 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-02087', datetime.date(2026, 2, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:49,878 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-SHARED-00616', datetime.date(2026, 2, 1), np.int64(2)) | rows=2
+2026-11-16 20:25:49,883 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1794', datetime.date(2026, 2, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:49,887 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1411', datetime.date(2026, 2, 3), np.int64(3)) | rows=2
+2026-11-16 20:25:49,892 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1116', datetime.date(2026, 2, 3), np.int64(2)) | rows=2
+2026-11-16 20:25:49,896 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-01088', datetime.date(2026, 2, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:49,900 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1207', datetime.date(2026, 2, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:49,905 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1117', datetime.date(2026, 2, 8), np.int64(2)) | rows=2
+2026-11-16 20:25:49,909 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1537', datetime.date(2026, 2, 8), np.int64(3)) | rows=2
+2026-11-16 20:25:49,914 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1486', datetime.date(2026, 2, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:49,918 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1241', datetime.date(2026, 2, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:49,922 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1640', datetime.date(2026, 2, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:49,927 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1414', datetime.date(2026, 2, 12), np.int64(2)) | rows=2
+2026-11-16 20:25:49,931 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1614', datetime.date(2026, 2, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:49,935 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1786', datetime.date(2026, 2, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:49,940 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-SHARED-01808', datetime.date(2026, 2, 20), np.int64(2)) | rows=2
+2026-11-16 20:25:49,944 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1250', datetime.date(2026, 2, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:49,949 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-02743', datetime.date(2026, 2, 21), np.int64(3)) | rows=2
+2026-11-16 20:25:49,953 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1196', datetime.date(2026, 2, 22), np.int64(3)) | rows=2
+2026-11-16 20:25:49,957 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1434', datetime.date(2026, 2, 25), np.int64(3)) | rows=2
+2026-11-16 20:25:49,962 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-00261', datetime.date(2026, 2, 25), np.int64(1)) | rows=2
+2026-11-16 20:25:49,966 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1296', datetime.date(2026, 2, 26), np.int64(3)) | rows=2
+2026-11-16 20:25:49,971 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1529', datetime.date(2026, 2, 28), np.int64(2)) | rows=2
+2026-11-16 20:25:49,975 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-SHARED-03201', datetime.date(2026, 3, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:49,980 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1340', datetime.date(2026, 3, 5), np.int64(2)) | rows=2
+2026-11-16 20:25:49,984 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1514', datetime.date(2026, 3, 6), np.int64(2)) | rows=2
+2026-11-16 20:25:49,989 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1449', datetime.date(2026, 3, 7), np.int64(3)) | rows=2
+2026-11-16 20:25:49,993 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-SHARED-01221', datetime.date(2026, 3, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:49,999 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1548', datetime.date(2026, 3, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:50,003 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1403', datetime.date(2026, 3, 9), np.int64(1)) | rows=2
+2026-11-16 20:25:50,008 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1332', datetime.date(2026, 3, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:50,012 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1737', datetime.date(2026, 3, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:50,017 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1165', datetime.date(2026, 3, 15), np.int64(3)) | rows=2
+2026-11-16 20:25:50,022 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1356', datetime.date(2026, 3, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:50,026 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1138', datetime.date(2026, 3, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:50,031 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1612', datetime.date(2026, 3, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:50,035 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-01866', datetime.date(2026, 3, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:50,040 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1542', datetime.date(2026, 3, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:50,045 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1497', datetime.date(2026, 3, 18), np.int64(2)) | rows=2
+2026-11-16 20:25:50,049 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1551', datetime.date(2026, 3, 18), np.int64(2)) | rows=2
+2026-11-16 20:25:50,053 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-SHARED-02045', datetime.date(2026, 3, 19), np.int64(2)) | rows=2
+2026-11-16 20:25:50,058 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-SHARED-02625', datetime.date(2026, 3, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:50,062 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1625', datetime.date(2026, 3, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:50,067 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1727', datetime.date(2026, 3, 21), np.int64(2)) | rows=2
+2026-11-16 20:25:50,072 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1505', datetime.date(2026, 3, 22), np.int64(2)) | rows=2
+2026-11-16 20:25:50,077 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1607', datetime.date(2026, 3, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:50,081 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1121', datetime.date(2026, 3, 23), np.int64(1)) | rows=2
+2026-11-16 20:25:50,087 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1507', datetime.date(2026, 3, 25), np.int64(3)) | rows=2
+2026-11-16 20:25:50,091 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1252', datetime.date(2026, 3, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:50,095 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1002', datetime.date(2026, 3, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:50,100 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1320', datetime.date(2026, 3, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:50,106 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-00876', datetime.date(2026, 3, 26), np.int64(2)) | rows=2
+2026-11-16 20:25:50,111 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1432', datetime.date(2026, 3, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:50,116 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1065', datetime.date(2026, 3, 29), np.int64(2)) | rows=2
+2026-11-16 20:25:50,121 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1097', datetime.date(2026, 3, 29), np.int64(1)) | rows=2
+2026-11-16 20:25:50,125 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1256', datetime.date(2026, 4, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:50,129 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1730', datetime.date(2026, 4, 1), np.int64(2)) | rows=2
+2026-11-16 20:25:50,135 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-SHARED-01647', datetime.date(2026, 4, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:50,139 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1097', datetime.date(2026, 4, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:50,144 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1686', datetime.date(2026, 4, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:50,148 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1622', datetime.date(2026, 4, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:50,153 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1572', datetime.date(2026, 4, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:50,158 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1543', datetime.date(2026, 4, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:50,162 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1262', datetime.date(2026, 4, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:50,167 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1065', datetime.date(2026, 4, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:50,172 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1413', datetime.date(2026, 4, 21), np.int64(2)) | rows=2
+2026-11-16 20:25:50,176 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-02955', datetime.date(2026, 4, 21), np.int64(2)) | rows=2
+2026-11-16 20:25:50,181 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1808', datetime.date(2026, 4, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:50,185 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1605', datetime.date(2026, 4, 23), np.int64(2)) | rows=2
+2026-11-16 20:25:50,189 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1411', datetime.date(2026, 4, 24), np.int64(2)) | rows=2
+2026-11-16 20:25:50,194 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1205', datetime.date(2026, 4, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:50,198 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1283', datetime.date(2026, 4, 25), np.int64(3)) | rows=2
+2026-11-16 20:25:50,203 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1806', datetime.date(2026, 4, 26), np.int64(2)) | rows=2
+2026-11-16 20:25:50,207 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-SHARED-01194', datetime.date(2026, 4, 27), np.int64(3)) | rows=2
+2026-11-16 20:25:50,211 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1286', datetime.date(2026, 4, 30), np.int64(2)) | rows=2
+2026-11-16 20:25:50,215 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1197', datetime.date(2026, 4, 30), np.int64(2)) | rows=2
+2026-11-16 20:25:50,219 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1131', datetime.date(2026, 5, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:50,223 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1189', datetime.date(2026, 5, 2), np.int64(2)) | rows=2
+2026-11-16 20:25:50,227 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1134', datetime.date(2026, 5, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:50,231 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1001', datetime.date(2026, 5, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:50,235 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1423', datetime.date(2026, 5, 6), np.int64(2)) | rows=2
+2026-11-16 20:25:50,239 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1081', datetime.date(2026, 5, 10), np.int64(1)) | rows=2
+2026-11-16 20:25:50,244 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1475', datetime.date(2026, 5, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:50,247 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-SHARED-00164', datetime.date(2026, 5, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:50,251 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1662', datetime.date(2026, 5, 16), np.int64(2)) | rows=2
+2026-11-16 20:25:50,255 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1708', datetime.date(2026, 5, 16), np.int64(3)) | rows=2
+2026-11-16 20:25:50,259 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1194', datetime.date(2026, 5, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:50,264 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1084', datetime.date(2026, 5, 18), np.int64(3)) | rows=2
+2026-11-16 20:25:50,268 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1254', datetime.date(2026, 5, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:50,272 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1153', datetime.date(2026, 5, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:50,276 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1727', datetime.date(2026, 5, 23), np.int64(1)) | rows=2
+2026-11-16 20:25:50,281 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1463', datetime.date(2026, 5, 24), np.int64(2)) | rows=2
+2026-11-16 20:25:50,285 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1152', datetime.date(2026, 5, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:50,290 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1611', datetime.date(2026, 5, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:50,294 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1322', datetime.date(2026, 5, 25), np.int64(1)) | rows=2
+2026-11-16 20:25:50,299 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1654', datetime.date(2026, 5, 27), np.int64(2)) | rows=2
+2026-11-16 20:25:50,303 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1163', datetime.date(2026, 5, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:50,307 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1677', datetime.date(2026, 5, 30), np.int64(2)) | rows=2
+2026-11-16 20:25:50,311 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1784', datetime.date(2026, 5, 31), np.int64(1)) | rows=2
+2026-11-16 20:25:50,315 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1314', datetime.date(2026, 5, 31), np.int64(1)) | rows=2
+2026-11-16 20:25:50,320 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1314', datetime.date(2026, 5, 31), np.int64(3)) | rows=2
+2026-11-16 20:25:50,324 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1056', datetime.date(2026, 6, 2), np.int64(3)) | rows=2
+2026-11-16 20:25:50,332 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1287', datetime.date(2026, 6, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:50,338 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-SHARED-00779', datetime.date(2026, 6, 3), np.int64(2)) | rows=2
+2026-11-16 20:25:50,343 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1266', datetime.date(2026, 6, 4), np.int64(2)) | rows=2
+2026-11-16 20:25:50,348 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1493', datetime.date(2026, 6, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:50,352 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-SHARED-01670', datetime.date(2026, 6, 6), np.int64(3)) | rows=2
+2026-11-16 20:25:50,357 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-SHARED-02198', datetime.date(2026, 6, 6), np.int64(2)) | rows=2
+2026-11-16 20:25:50,361 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-SHARED-02198', datetime.date(2026, 6, 6), np.int64(3)) | rows=2
+2026-11-16 20:25:50,365 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-02846', datetime.date(2026, 6, 6), np.int64(2)) | rows=2
+2026-11-16 20:25:50,371 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1164', datetime.date(2026, 6, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:50,375 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1414', datetime.date(2026, 6, 9), np.int64(2)) | rows=2
+2026-11-16 20:25:50,379 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1639', datetime.date(2026, 6, 11), np.int64(2)) | rows=2
+2026-11-16 20:25:50,383 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-SHARED-01132', datetime.date(2026, 6, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:50,388 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1747', datetime.date(2026, 6, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:50,392 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1327', datetime.date(2026, 6, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:50,397 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1370', datetime.date(2026, 6, 17), np.int64(1)) | rows=2
+2026-11-16 20:25:50,401 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-00992', datetime.date(2026, 6, 17), np.int64(2)) | rows=2
+2026-11-16 20:25:50,405 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1459', datetime.date(2026, 6, 18), np.int64(2)) | rows=2
+2026-11-16 20:25:50,410 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-SHARED-01822', datetime.date(2026, 6, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:50,414 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1741', datetime.date(2026, 6, 19), np.int64(2)) | rows=2
+2026-11-16 20:25:50,419 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1341', datetime.date(2026, 6, 21), np.int64(2)) | rows=2
+2026-11-16 20:25:50,423 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1627', datetime.date(2026, 6, 24), np.int64(1)) | rows=2
+2026-11-16 20:25:50,427 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1031', datetime.date(2026, 6, 27), np.int64(2)) | rows=2
+2026-11-16 20:25:50,431 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1126', datetime.date(2026, 6, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:50,435 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-SHARED-02963', datetime.date(2026, 6, 28), np.int64(1)) | rows=2
+2026-11-16 20:25:50,439 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1115', datetime.date(2026, 6, 29), np.int64(1)) | rows=2
+2026-11-16 20:25:50,443 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1562', datetime.date(2026, 7, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:50,449 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1442', datetime.date(2026, 7, 3), np.int64(1)) | rows=2
+2026-11-16 20:25:50,453 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1442', datetime.date(2026, 7, 3), np.int64(2)) | rows=2
+2026-11-16 20:25:50,457 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-00291', datetime.date(2026, 7, 3), np.int64(1)) | rows=2
+2026-11-16 20:25:50,462 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1446', datetime.date(2026, 7, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:50,466 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1162', datetime.date(2026, 7, 5), np.int64(2)) | rows=2
+2026-11-16 20:25:50,470 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1243', datetime.date(2026, 7, 6), np.int64(1)) | rows=2
+2026-11-16 20:25:50,475 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1536', datetime.date(2026, 7, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:50,479 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1351', datetime.date(2026, 7, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:50,484 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1162', datetime.date(2026, 7, 7), np.int64(2)) | rows=2
+2026-11-16 20:25:50,488 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-SHARED-02317', datetime.date(2026, 7, 10), np.int64(3)) | rows=2
+2026-11-16 20:25:50,493 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1634', datetime.date(2026, 7, 11), np.int64(2)) | rows=2
+2026-11-16 20:25:50,498 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1724', datetime.date(2026, 7, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:50,502 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1728', datetime.date(2026, 7, 13), np.int64(1)) | rows=2
+2026-11-16 20:25:50,507 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1355', datetime.date(2026, 7, 14), np.int64(2)) | rows=2
+2026-11-16 20:25:50,511 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1512', datetime.date(2026, 7, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:50,516 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1005', datetime.date(2026, 7, 15), np.int64(1)) | rows=2
+2026-11-16 20:25:50,520 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1436', datetime.date(2026, 7, 16), np.int64(1)) | rows=2
+2026-11-16 20:25:50,524 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1317', datetime.date(2026, 7, 16), np.int64(3)) | rows=2
+2026-11-16 20:25:50,529 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1009', datetime.date(2026, 7, 17), np.int64(3)) | rows=2
+2026-11-16 20:25:50,534 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-SHARED-02294', datetime.date(2026, 7, 18), np.int64(3)) | rows=2
+2026-11-16 20:25:50,539 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1052', datetime.date(2026, 7, 19), np.int64(2)) | rows=2
+2026-11-16 20:25:50,543 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-SHARED-02682', datetime.date(2026, 7, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:50,547 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1637', datetime.date(2026, 7, 20), np.int64(2)) | rows=2
+2026-11-16 20:25:50,552 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1322', datetime.date(2026, 7, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:50,556 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-SHARED-00226', datetime.date(2026, 7, 21), np.int64(3)) | rows=2
+2026-11-16 20:25:50,561 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1701', datetime.date(2026, 7, 21), np.int64(2)) | rows=2
+2026-11-16 20:25:50,565 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-BLR01-1502', datetime.date(2026, 7, 21), np.int64(2)) | rows=2
+2026-11-16 20:25:50,569 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-COL01-1636', datetime.date(2026, 7, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:50,574 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1320', datetime.date(2026, 7, 25), np.int64(1)) | rows=2
+2026-11-16 20:25:50,578 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1299', datetime.date(2026, 7, 29), np.int64(1)) | rows=2
+2026-11-16 20:25:50,582 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-BLR01', 'ORD-SHARED-02518', datetime.date(2026, 7, 29), np.int64(1)) | rows=2
+2026-11-16 20:25:50,587 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-SHARED-00332', datetime.date(2026, 7, 30), np.int64(2)) | rows=2
+2026-11-16 20:25:50,592 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-SHARED-00279', datetime.date(2026, 7, 31), np.int64(3)) | rows=2
+2026-11-16 20:25:50,596 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-WEB01-1396', datetime.date(2026, 7, 31), np.int64(1)) | rows=2
+2026-11-16 20:25:50,602 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1119', datetime.date(2026, 7, 31), np.int64(3)) | rows=2
+2026-11-16 20:25:50,607 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1448', datetime.date(2026, 8, 1), np.int64(1)) | rows=2
+2026-11-16 20:25:50,613 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1043', datetime.date(2026, 8, 3), np.int64(2)) | rows=2
+2026-11-16 20:25:50,619 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1220', datetime.date(2026, 8, 4), np.int64(2)) | rows=2
+2026-11-16 20:25:50,625 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-02918', datetime.date(2026, 8, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:50,630 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1571', datetime.date(2026, 8, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:50,636 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-SHARED-00808', datetime.date(2026, 8, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:50,640 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-00304', datetime.date(2026, 8, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:50,645 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1124', datetime.date(2026, 8, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:50,650 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1154', datetime.date(2026, 8, 8), np.int64(2)) | rows=2
+2026-11-16 20:25:50,654 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1401', datetime.date(2026, 8, 9), np.int64(2)) | rows=2
+2026-11-16 20:25:50,660 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1735', datetime.date(2026, 8, 9), np.int64(2)) | rows=2
+2026-11-16 20:25:50,664 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1457', datetime.date(2026, 8, 10), np.int64(1)) | rows=2
+2026-11-16 20:25:50,669 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-SHARED-02561', datetime.date(2026, 8, 11), np.int64(3)) | rows=2
+2026-11-16 20:25:50,673 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1052', datetime.date(2026, 8, 11), np.int64(1)) | rows=2
+2026-11-16 20:25:50,678 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-01504', datetime.date(2026, 8, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:50,682 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-SHARED-03175', datetime.date(2026, 8, 18), np.int64(1)) | rows=2
+2026-11-16 20:25:50,686 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1366', datetime.date(2026, 8, 19), np.int64(1)) | rows=2
+2026-11-16 20:25:50,691 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1607', datetime.date(2026, 8, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:50,695 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-SHARED-02491', datetime.date(2026, 8, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:50,699 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1287', datetime.date(2026, 8, 21), np.int64(3)) | rows=2
+2026-11-16 20:25:50,704 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1251', datetime.date(2026, 8, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:50,708 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('COM-WEB01', 'ORD-SHARED-02487', datetime.date(2026, 8, 23), np.int64(2)) | rows=2
+2026-11-16 20:25:50,711 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-BLR01', 'ORD-BLR01-1418', datetime.date(2026, 8, 23), np.int64(1)) | rows=2
+2026-11-16 20:25:50,715 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1327', datetime.date(2026, 8, 24), np.int64(3)) | rows=2
+2026-11-16 20:25:50,719 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-02871', datetime.date(2026, 8, 25), np.int64(2)) | rows=2
+2026-11-16 20:25:50,723 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-COL01', 'ORD-SHARED-02871', datetime.date(2026, 8, 25), np.int64(3)) | rows=2
+2026-11-16 20:25:50,727 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-HYD01', 'ORD-HYD01-1739', datetime.date(2026, 8, 26), np.int64(3)) | rows=2
+2026-11-16 20:25:50,731 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1449', datetime.date(2026, 8, 26), np.int64(2)) | rows=2
+2026-11-16 20:25:50,735 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-IN01-1156', datetime.date(2026, 8, 30), np.int64(3)) | rows=2
+2026-11-16 20:25:50,739 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-CHE02', 'ORD-CHE02-1183', datetime.date(2026, 8, 30), np.int64(1)) | rows=2
+2026-11-16 20:25:50,743 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-MUM02-1607', datetime.date(2026, 9, 2), np.int64(1)) | rows=2
+2026-11-16 20:25:50,747 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1679', datetime.date(2026, 9, 4), np.int64(1)) | rows=2
+2026-11-16 20:25:50,752 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1651', datetime.date(2026, 9, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:50,756 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1563', datetime.date(2026, 9, 5), np.int64(1)) | rows=2
+2026-11-16 20:25:50,760 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1331', datetime.date(2026, 9, 6), np.int64(3)) | rows=2
+2026-11-16 20:25:50,766 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1320', datetime.date(2026, 9, 7), np.int64(1)) | rows=2
+2026-11-16 20:25:50,770 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-PUN03', 'ORD-PUN03-1686', datetime.date(2026, 9, 7), np.int64(2)) | rows=2
+2026-11-16 20:25:50,774 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1444', datetime.date(2026, 9, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:50,778 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1477', datetime.date(2026, 9, 8), np.int64(1)) | rows=2
+2026-11-16 20:25:50,783 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-SHARED-01396', datetime.date(2026, 9, 12), np.int64(1)) | rows=2
+2026-11-16 20:25:50,787 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MYS02', 'ORD-MYS02-1538', datetime.date(2026, 9, 14), np.int64(1)) | rows=2
+2026-11-16 20:25:50,792 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-HYD02', 'ORD-HYD02-1410', datetime.date(2026, 9, 15), np.int64(3)) | rows=2
+2026-11-16 20:25:50,796 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1541', datetime.date(2026, 9, 15), np.int64(3)) | rows=2
+2026-11-16 20:25:50,800 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('RELY-MUM01', 'ORD-MUM01-1298', datetime.date(2026, 9, 20), np.int64(1)) | rows=2
+2026-11-16 20:25:50,804 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-01548', datetime.date(2026, 9, 21), np.int64(3)) | rows=2
+2026-11-16 20:25:50,808 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-CHE01-1306', datetime.date(2026, 9, 22), np.int64(1)) | rows=2
+2026-11-16 20:25:50,812 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('AMZN-IN01', 'ORD-SHARED-01710', datetime.date(2026, 9, 23), np.int64(1)) | rows=2
+2026-11-16 20:25:50,816 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('FLPK-IN01', 'ORD-IN01-1684', datetime.date(2026, 9, 23), np.int64(1)) | rows=2
+2026-11-16 20:25:50,820 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('CRMA-CHE01', 'ORD-SHARED-00909', datetime.date(2026, 9, 26), np.int64(1)) | rows=2
+2026-11-16 20:25:50,825 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-DEL01', 'ORD-DEL01-1554', datetime.date(2026, 9, 27), np.int64(1)) | rows=2
+2026-11-16 20:25:51,072 | WARNING | QUARANTINE CREATED | rows=1148 | file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261116_202551.csv
+2026-11-16 20:25:51,072 | INFO | SOURCE DEDUP SUMMARY | source_rows=28000 | retained_rows=26852 | quarantined_rows=1148
+2026-11-16 20:25:51,206 | INFO | SOURCE READ COMPLETE | raw_rows=28000 | clean_rows=26852 | quarantined_rows=1148 | quarantine_file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261116_202551.csv
+2026-11-16 20:25:51,211 | INFO | BATCH COUNTS | raw_source=28000 | eligible_clean_source=26852 | quarantined=1148
+2026-11-16 20:25:54,075 | INFO | Configured schema contract validated.
+2026-11-16 20:26:16,993 | WARNING | OPERATOR APPROVED SCHEMA DRIFT | missing_in_source=['gateway_discount'] | extra_in_source=['loyalty_tier', 'syspk']
+2026-11-16 20:26:16,995 | INFO | Padded missing source column 'gateway_discount' with None (NULL).
+2026-11-16 20:26:17,016 | INFO | Added new column to target table: loyalty_tier (VARCHAR(50))
+2026-11-16 20:26:17,018 | INFO | Added new column to target table: syspk (BIGINT)
+2026-11-16 20:26:17,061 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-16 20:26:33,750 | INFO | Staging loaded: stg_store_sales_14447a95b81c | Rows: 26852
+2026-11-16 20:26:33,823 | INFO | PRE-UPSERT CLASSIFICATION | new=0 | changed_existing=26852 | unchanged_existing=0
+2026-11-16 20:26:35,067 | INFO | UPSERT EXECUTED | PostgreSQL affected_rows=26852
+2026-11-16 20:26:35,257 | INFO | SOURCE-TO-TARGET VALIDATION | clean_source_rows=26852 | exact_target_matches=26852 | mismatches_or_missing=0
+2026-11-16 20:26:35,983 | INFO | QUARANTINE TARGET CHECK | quarantined_occurrences=1148 | exact_value_matches_in_target=0 | not_exactly_present=1148
+2026-11-16 20:26:35,991 | INFO | FINAL RECONCILIATION | raw_source=28000 | clean_source=26852 | quarantined=1148 | staged=26852 | inserted=0 | updated=26852 | unchanged=0 | postgres_affected=26852 | matched=26852
+2026-11-16 20:26:35,992 | INFO | Staging table cleaned up: stg_store_sales_14447a95b81c
+2026-11-17 09:38:45,910 | INFO | ================================================================================
+2026-11-17 09:38:45,910 | INFO | DAILY INGESTION STARTED
+2026-11-17 09:38:45,910 | INFO | COMPOSITE BUSINESS KEY: ['store_code', 'order_id', 'order_date', 'order_line_item']
+2026-11-17 09:38:45,911 | INFO | SOURCE FILE: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 09:38:45,911 | INFO | TARGET TABLE: public.store_sales
+2026-11-17 09:38:45,911 | INFO | ================================================================================
+2026-11-17 09:38:45,911 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 09:38:49,530 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-01368', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 09:38:49,535 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1665', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 09:38:49,768 | WARNING | QUARANTINE CREATED | rows=580 | file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_093849.csv
+2026-11-17 09:38:49,768 | INFO | SOURCE DEDUP SUMMARY | source_rows=28004 | retained_rows=27424 | quarantined_rows=580
+2026-11-17 09:38:49,892 | INFO | SOURCE READ COMPLETE | raw_rows=28004 | clean_rows=27424 | quarantined_rows=580 | quarantine_file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_093849.csv
+2026-11-17 09:38:49,896 | INFO | BATCH COUNTS | raw_source=28004 | eligible_clean_source=27424 | quarantined=580
+2026-11-17 09:38:52,660 | INFO | Configured schema contract validated.
+2026-11-17 09:39:09,057 | WARNING | OPERATOR APPROVED SCHEMA DRIFT | missing_in_source=['gateway_discount'] | extra_in_source=['loyalty_tier']
+2026-11-17 09:39:09,057 | INFO | Source column 'gateway_discount' is missing. It will be excluded from this batch to preserve existing DB values.
+2026-11-17 09:39:09,085 | INFO | Added new column to target table: loyalty_tier (VARCHAR(50))
+2026-11-17 09:39:09,337 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-17 09:39:26,070 | INFO | Staging loaded: stg_store_sales_1b4949958acf | Rows: 27424
+2026-11-17 09:39:26,174 | INFO | PRE-UPSERT CLASSIFICATION | new=0 | changed_existing=27424 | unchanged_existing=0
+2026-11-17 09:39:27,341 | INFO | UPSERT EXECUTED | PostgreSQL affected_rows=27424
+2026-11-17 09:39:27,530 | INFO | SOURCE-TO-TARGET VALIDATION | clean_source_rows=27424 | exact_target_matches=27424 | mismatches_or_missing=0
+2026-11-17 09:39:27,969 | INFO | QUARANTINE TARGET CHECK | quarantined_occurrences=580 | exact_value_matches_in_target=574 | not_exactly_present=6
+2026-11-17 09:39:27,977 | INFO | FINAL RECONCILIATION | raw_source=28004 | clean_source=27424 | quarantined=580 | staged=27424 | inserted=0 | updated=27424 | unchanged=0 | postgres_affected=27424 | matched=27424
+2026-11-17 09:39:27,979 | INFO | Staging table cleaned up: stg_store_sales_1b4949958acf
+2026-11-17 09:47:19,340 | INFO | ================================================================================
+2026-11-17 09:47:19,340 | INFO | DAILY INGESTION STARTED
+2026-11-17 09:47:19,340 | INFO | COMPOSITE BUSINESS KEY: ['store_code', 'order_id', 'order_date', 'order_line_item']
+2026-11-17 09:47:19,340 | INFO | SOURCE FILE: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 09:47:19,341 | INFO | TARGET TABLE: public.store_sales
+2026-11-17 09:47:19,341 | INFO | ================================================================================
+2026-11-17 09:47:19,341 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 09:47:23,356 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-01368', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 09:47:23,361 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1665', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 09:47:23,576 | WARNING | QUARANTINE CREATED | rows=580 | file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_094723.csv
+2026-11-17 09:47:23,577 | INFO | SOURCE DEDUP SUMMARY | source_rows=28004 | retained_rows=27424 | quarantined_rows=580
+2026-11-17 09:47:23,701 | INFO | SOURCE READ COMPLETE | raw_rows=28004 | clean_rows=27424 | quarantined_rows=580 | quarantine_file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_094723.csv
+2026-11-17 09:47:23,705 | INFO | BATCH COUNTS | raw_source=28004 | eligible_clean_source=27424 | quarantined=580
+2026-11-17 09:47:26,934 | INFO | Configured schema contract validated.
+2026-11-17 09:47:38,632 | WARNING | OPERATOR APPROVED SCHEMA DRIFT | missing_in_source=['gateway_discount'] | extra_in_source=[]
+2026-11-17 09:47:38,632 | INFO | Source column 'gateway_discount' is missing. It will be excluded from this batch to preserve existing DB values.
+2026-11-17 09:47:38,665 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-17 09:47:53,687 | INFO | Staging loaded: stg_store_sales_fe7b05d955db | Rows: 27424
+2026-11-17 09:47:53,929 | INFO | PRE-UPSERT CLASSIFICATION | new=0 | changed_existing=2 | unchanged_existing=27422
+2026-11-17 09:47:54,297 | INFO | UPSERT EXECUTED | PostgreSQL affected_rows=2
+2026-11-17 09:47:54,446 | INFO | SOURCE-TO-TARGET VALIDATION | clean_source_rows=27424 | exact_target_matches=27424 | mismatches_or_missing=0
+2026-11-17 09:47:54,805 | INFO | QUARANTINE TARGET CHECK | quarantined_occurrences=580 | exact_value_matches_in_target=574 | not_exactly_present=6
+2026-11-17 09:47:54,809 | INFO | FINAL RECONCILIATION | raw_source=28004 | clean_source=27424 | quarantined=580 | staged=27424 | inserted=0 | updated=2 | unchanged=27422 | postgres_affected=2 | matched=27424
+2026-11-17 09:47:54,810 | INFO | Staging table cleaned up: stg_store_sales_fe7b05d955db
+2026-11-17 09:54:36,488 | INFO | ================================================================================
+2026-11-17 09:54:36,488 | INFO | DAILY INGESTION STARTED
+2026-11-17 09:54:36,488 | INFO | COMPOSITE BUSINESS KEY: ['store_code', 'order_id', 'order_date', 'order_line_item']
+2026-11-17 09:54:36,488 | INFO | SOURCE FILE: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 09:54:36,489 | INFO | TARGET TABLE: public.store_sales
+2026-11-17 09:54:36,489 | INFO | ================================================================================
+2026-11-17 09:54:36,489 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 09:54:39,939 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-01368', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 09:54:39,943 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1665', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 09:54:40,154 | WARNING | QUARANTINE CREATED | rows=580 | file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_095440.csv
+2026-11-17 09:54:40,154 | INFO | SOURCE DEDUP SUMMARY | source_rows=28004 | retained_rows=27424 | quarantined_rows=580
+2026-11-17 09:54:40,281 | INFO | SOURCE READ COMPLETE | raw_rows=28004 | clean_rows=27424 | quarantined_rows=580 | quarantine_file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_095440.csv
+2026-11-17 09:54:40,286 | INFO | BATCH COUNTS | raw_source=28004 | eligible_clean_source=27424 | quarantined=580
+2026-11-17 09:54:43,199 | INFO | Configured schema contract validated.
+2026-11-17 09:54:46,403 | WARNING | OPERATOR APPROVED SCHEMA DRIFT | missing_in_source=['gateway_discount'] | extra_in_source=[]
+2026-11-17 09:54:46,404 | INFO | Source column 'gateway_discount' is missing. It will be excluded from this batch to preserve existing DB values.
+2026-11-17 09:54:46,449 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-17 09:55:01,975 | INFO | Staging loaded: stg_store_sales_9719864435e2 | Rows: 27424
+2026-11-17 09:55:02,177 | INFO | PRE-UPSERT CLASSIFICATION | new=0 | changed_existing=2 | unchanged_existing=27422
+2026-11-17 09:55:02,468 | INFO | UPSERT EXECUTED | PostgreSQL affected_rows=2
+2026-11-17 09:55:02,615 | INFO | SOURCE-TO-TARGET VALIDATION | clean_source_rows=27424 | exact_target_matches=27424 | mismatches_or_missing=0
+2026-11-17 09:55:02,953 | INFO | QUARANTINE TARGET CHECK | quarantined_occurrences=580 | exact_value_matches_in_target=574 | not_exactly_present=6
+2026-11-17 09:55:02,957 | INFO | FINAL RECONCILIATION | raw_source=28004 | clean_source=27424 | quarantined=580 | staged=27424 | inserted=0 | updated=2 | unchanged=27422 | postgres_affected=2 | matched=27424
+2026-11-17 09:55:02,958 | INFO | Staging table cleaned up: stg_store_sales_9719864435e2
