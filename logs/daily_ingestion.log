@@ -969,3 +969,52 @@ NameError: name 'InvalidOperation' is not defined
 2026-11-17 09:55:02,953 | INFO | QUARANTINE TARGET CHECK | quarantined_occurrences=580 | exact_value_matches_in_target=574 | not_exactly_present=6
 2026-11-17 09:55:02,957 | INFO | FINAL RECONCILIATION | raw_source=28004 | clean_source=27424 | quarantined=580 | staged=27424 | inserted=0 | updated=2 | unchanged=27422 | postgres_affected=2 | matched=27424
 2026-11-17 09:55:02,958 | INFO | Staging table cleaned up: stg_store_sales_9719864435e2
+2026-11-17 10:15:24,960 | INFO | ================================================================================
+2026-11-17 10:15:24,961 | INFO | DAILY INGESTION STARTED
+2026-11-17 10:15:24,961 | INFO | COMPOSITE BUSINESS KEY: ['store_code', 'order_id', 'order_date', 'order_line_item']
+2026-11-17 10:15:24,961 | INFO | SOURCE FILE: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 10:15:24,962 | INFO | TARGET TABLE: public.store_sales
+2026-11-17 10:15:24,962 | INFO | ================================================================================
+2026-11-17 10:15:24,962 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 10:15:28,463 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-01368', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 10:15:28,467 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1665', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 10:15:28,686 | WARNING | QUARANTINE CREATED | rows=580 | file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_101528.csv
+2026-11-17 10:15:28,687 | INFO | SOURCE DEDUP SUMMARY | source_rows=28004 | retained_rows=27424 | quarantined_rows=580
+2026-11-17 10:15:28,814 | INFO | SOURCE READ COMPLETE | raw_rows=28004 | clean_rows=27424 | quarantined_rows=580 | quarantine_file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_101528.csv
+2026-11-17 10:15:28,818 | INFO | BATCH COUNTS | raw_source=28004 | eligible_clean_source=27424 | quarantined=580
+2026-11-17 10:15:33,490 | INFO | Configured schema contract validated.
+2026-11-17 10:15:57,464 | WARNING | OPERATOR APPROVED SCHEMA DRIFT | missing_in_source=['gateway_discount'] | extra_in_source=['loyalty_tier']
+2026-11-17 10:15:57,464 | INFO | Source column 'gateway_discount' is missing. It will be excluded from this batch to preserve existing DB values.
+2026-11-17 10:15:57,494 | INFO | Added new column to target table: loyalty_tier (VARCHAR(50))
+2026-11-17 10:15:57,550 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-17 10:16:13,076 | INFO | Staging loaded: stg_store_sales_675e1e6c09bf | Rows: 27424
+2026-11-17 10:16:13,186 | INFO | PRE-UPSERT CLASSIFICATION | new=0 | changed_existing=27424 | unchanged_existing=0
+2026-11-17 10:16:14,102 | INFO | UPSERT EXECUTED | PostgreSQL affected_rows=27424
+2026-11-17 10:16:14,322 | INFO | SOURCE-TO-TARGET VALIDATION | clean_source_rows=27424 | exact_target_matches=27424 | mismatches_or_missing=0
+2026-11-17 10:16:14,670 | INFO | QUARANTINE TARGET CHECK | quarantined_occurrences=580 | exact_value_matches_in_target=574 | not_exactly_present=6
+2026-11-17 10:16:14,677 | INFO | FINAL RECONCILIATION | raw_source=28004 | clean_source=27424 | quarantined=580 | staged=27424 | inserted=0 | updated=27424 | unchanged=0 | postgres_affected=27424 | matched=27424
+2026-11-17 10:16:14,678 | INFO | Staging table cleaned up: stg_store_sales_675e1e6c09bf
+2026-11-17 10:17:53,165 | INFO | ================================================================================
+2026-11-17 10:17:53,165 | INFO | DAILY INGESTION STARTED
+2026-11-17 10:17:53,165 | INFO | COMPOSITE BUSINESS KEY: ['store_code', 'order_id', 'order_date', 'order_line_item']
+2026-11-17 10:17:53,165 | INFO | SOURCE FILE: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 10:17:53,165 | INFO | TARGET TABLE: public.store_sales
+2026-11-17 10:17:53,165 | INFO | ================================================================================
+2026-11-17 10:17:53,165 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.1_dropped_column.csv
+2026-11-17 10:17:56,601 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-MUM02', 'ORD-SHARED-01368', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 10:17:56,605 | ERROR | AMBIGUOUS DUPLICATE KEY QUARANTINED | key=('STORE-NOI02', 'ORD-NOI02-1665', datetime.date(2026, 9, 30), np.int64(1)) | rows=3
+2026-11-17 10:17:56,823 | WARNING | QUARANTINE CREATED | rows=580 | file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_101756.csv
+2026-11-17 10:17:56,823 | INFO | SOURCE DEDUP SUMMARY | source_rows=28004 | retained_rows=27424 | quarantined_rows=580
+2026-11-17 10:17:56,950 | INFO | SOURCE READ COMPLETE | raw_rows=28004 | clean_rows=27424 | quarantined_rows=580 | quarantine_file=C:\DataEngineering\StoreSalesProject\data\quarantine\store_sales_quarantine_20261117_101756.csv
+2026-11-17 10:17:56,955 | INFO | BATCH COUNTS | raw_source=28004 | eligible_clean_source=27424 | quarantined=580
+2026-11-17 10:17:59,594 | INFO | Configured schema contract validated.
+2026-11-17 10:18:02,747 | WARNING | OPERATOR APPROVED SCHEMA DRIFT | missing_in_source=['gateway_discount'] | extra_in_source=[]
+2026-11-17 10:18:02,747 | INFO | Source column 'gateway_discount' is missing. It will be excluded from this batch to preserve existing DB values.
+2026-11-17 10:18:02,775 | INFO | Composite unique index verified: ux_store_sales_business_key
+2026-11-17 10:18:18,473 | INFO | Staging loaded: stg_store_sales_739db9f5689a | Rows: 27424
+2026-11-17 10:18:18,715 | INFO | PRE-UPSERT CLASSIFICATION | new=0 | changed_existing=2 | unchanged_existing=27422
+2026-11-17 10:18:19,122 | INFO | UPSERT EXECUTED | PostgreSQL affected_rows=2
+2026-11-17 10:18:19,276 | INFO | SOURCE-TO-TARGET VALIDATION | clean_source_rows=27424 | exact_target_matches=27424 | mismatches_or_missing=0
+2026-11-17 10:18:19,626 | INFO | QUARANTINE TARGET CHECK | quarantined_occurrences=580 | exact_value_matches_in_target=574 | not_exactly_present=6
+2026-11-17 10:18:19,631 | INFO | FINAL RECONCILIATION | raw_source=28004 | clean_source=27424 | quarantined=580 | staged=27424 | inserted=0 | updated=2 | unchanged=27422 | postgres_affected=2 | matched=27424
+2026-11-17 10:18:19,632 | INFO | Staging table cleaned up: stg_store_sales_739db9f5689a

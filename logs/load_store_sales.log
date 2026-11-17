@@ -656,3 +656,14 @@
 2026-11-17 08:48:26,668 | INFO | Target database schema contract validated.
 2026-11-17 08:48:26,724 | INFO | Inserting 27426 clean rows into public.store_sales...
 2026-11-17 08:48:43,525 | INFO | INITIAL LOAD RECONCILIATION PASSED | CSV Total=28000 | Inserted=27426 | Quarantined=574
+2026-11-17 10:13:47,161 | INFO | ================================================================================
+2026-11-17 10:13:47,163 | INFO | INITIAL STORE SALES LOAD STARTED
+2026-11-17 10:13:47,163 | INFO | ================================================================================
+2026-11-17 10:13:47,163 | INFO | Reading source CSV: C:\DataEngineering\StoreSalesProject\data\store_sales_base_initial_v306_28k_v1.0.csv
+2026-11-17 10:13:51,128 | WARNING | QUARANTINE CREATED | rows=574 | file=C:\DataEngineering\StoreSalesProject\data\quarantine\initial_load_quarantine_20261117_101351.csv
+2026-11-17 10:13:51,128 | INFO | SOURCE DEDUP SUMMARY | raw_source_rows=28000 | retained_clean=27426 | quarantined=574
+2026-11-17 10:13:56,400 | INFO | Target table existence confirmed: public.store_sales
+2026-11-17 10:13:56,405 | INFO | Target table is empty. Ready for initial load.
+2026-11-17 10:13:56,429 | INFO | Target database schema contract validated.
+2026-11-17 10:13:56,480 | INFO | Inserting 27426 clean rows into public.store_sales...
+2026-11-17 10:14:13,363 | INFO | INITIAL LOAD RECONCILIATION PASSED | CSV Total=28000 | Inserted=27426 | Quarantined=574
